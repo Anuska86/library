@@ -25,12 +25,13 @@ create table book(
     stock int(4),
     sales int(4),
     price decimal(10,2),
+    lang varchar(2),
     category_id int(4),
     author_id int(4),
     FOREIGN KEY (category_id) REFERENCES category(id),
     FOREIGN KEY (author_id) REFERENCES author(id)
 );
 
-insert into book (isbn,title,stock,sales,price,category_id,author_id) values ('978-0007123810','The Lord of the Rings',10,30,20,3,2);
-insert into book (isbn,title,stock,sales,price,category_id,author_id) values ('978-0007458424','The Hobbit',8,50,18.5,3,2);
-insert into book (isbn,title,stock,sales,price,category_id,author_id) values (' 978-8466671781','Roma soy yo',30,12,20.5,1,1);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-0007123810','The Lord of the Rings',10,30,20,'EN',3,2);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-0007458424','The Hobbit',8,50,18.5,'EN',3,2);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-8466671781','Roma soy yo',30,12,20.5,'ES',1,1);

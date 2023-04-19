@@ -32,7 +32,7 @@ function getUsers() {
       insertNewRecordFromDB(data);
     })
 .catch(function(err) {
-    console.info(err );
+    console.info(err);
 });
 }
 
