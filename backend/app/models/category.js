@@ -1,10 +1,10 @@
 var request = require("request");
 var connection = require ('../config/connection');
 
-function Book() {
+function Category() {
   this.get = function(res) {
     connection.acquire(function(err,con) {
-      con.query('select * from book', function(err,result) {
+      con.query('select * from category', function(err,result) {
         con.release();
         console.log(result);
         res.send(result);
@@ -12,17 +12,17 @@ function Book() {
       });
     });
   };
-  this.getOneBook = function(isbn,res) {
+this.getOneCategory = function(id,res) {
     connection.acquire(function(err,con) {
-      console.log(isbn);
-      con.query('select * from book where isbn = ?',[isbn], function(err,result) {
+      console.log(id);
+      con.query('select * from category where id = ?',[id], function(err,result) {
         con.release();
         res.send(result);
         console.log(result);
       });
     });
   };
-  this.create = function(book,res) {
+  /*this.create = function(book,res) {
     connection.acquire(function(err,con) {
       con.query('insert into book set ?', book, function(err,result) {
         con.release();
@@ -61,7 +61,7 @@ function Book() {
         }
       });
     });
-  };
+  };*/
 };
 
-module.exports = new Book();
+module.exports = new Category();

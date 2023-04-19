@@ -1,6 +1,7 @@
 var usuario = require('../models/usuario');
 var author = require('../models/author');
 var book = require('../models/book');
+var category = require('../models/category');
 
 module.exports = {
   configure: function(app) {
@@ -62,5 +63,23 @@ module.exports = {
     app.delete('/sales/:id',function(req,res) {
       sales.delete(req.params.id,res);
     });
+    //Library category
+    app.get('/category',function(req,res) {
+      category.get(res);
+    });
+    app.get('/category/:id',function(req,res) {
+      category.getOneCategory(req.params.id,res);
+    });
+    
+    /*
+    app.post('/book',function(req,res) {
+      book.create(req.body,res);
+    });
+    app.put('/book/:id',function(req,res) {
+      book.update(req.body,req.params.id,res);
+    });
+    app.delete('/book/:id',function(req,res) {
+      book.delete(req.params.id,res);
+    });*/
   }
 };
