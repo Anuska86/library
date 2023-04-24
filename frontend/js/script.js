@@ -17,7 +17,7 @@
 })()
 
 function getUsers() {
-  fetch(`http://localhost:8000/usuario`, {
+  fetch(`http://localhost:8000/book`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
@@ -39,7 +39,7 @@ function getUsers() {
 function checkUser() {
   let loginName = document.getElementById('user_input').value;
   let loginPassword = document.getElementById('pass_input').value;
-  fetch(`http://localhost:8000/usuario/${loginName}/${loginPassword}`, {
+  fetch(`http://localhost:8000/book/${loginName}/${loginPassword}`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
@@ -66,7 +66,7 @@ function toogleChecks(isValid,response){
 }
 
   function createUser(formData) {
-    fetch('http://localhost:8000/usuario', {
+    fetch('http://localhost:8000/book', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -74,11 +74,11 @@ function toogleChecks(isValid,response){
         'Access-Control-Allow-Origin': '*'
       },
       body: JSON.stringify({
-        "nombre_usuario": formData.user_name,
-        "pass": formData.user_pass,
-        "email": formData.email,
-        "salario": formData.salary,
-        "tipo": "Usuario"
+        "isbn": formData.isbn,
+        "title": formData.title,
+        "stock": formData.stock,
+        "price": formData.price,
+        "lang": "EN"
       })
     })
       .then(response => response.json())
@@ -86,7 +86,7 @@ function toogleChecks(isValid,response){
 
   function updateFromDB(td,formData) {
     let id = parseInt(td)
-    fetch(`http://localhost:8000/usuario/${id}`, {
+    fetch(`http://localhost:8000/book/${id}`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -94,11 +94,11 @@ function toogleChecks(isValid,response){
         'Access-Control-Allow-Origin': '*'
       },
       body: JSON.stringify({
-        "nombre_usuario": formData.user_name,
-        "pass": formData.user_pass,
-        "email": formData.email,
-        "salario": formData.salary,
-        "tipo": "Usuario"
+        "isbn": formData.isbn,
+        "title": formData.title,
+        "stock": formData.stock,
+        "price": formData.price,
+        "lang": "EN"
       })
     })
       .then(response => response.json())
@@ -107,7 +107,7 @@ function toogleChecks(isValid,response){
 
   function deleteFromDB(td){
     let id = parseInt(td.parentElement.parentElement.lastElementChild.textContent)
-    fetch(`http://localhost:8000/usuario/${id}`, {
+    fetch(`http://localhost:8000/book/${id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -121,7 +121,7 @@ function toogleChecks(isValid,response){
 var selectedRow = null
 
 function onFormSubmit() {
-    if (validate() && validatePass() && validateEmail()) {
+    if (validate() && validatePass() && validatestock()) {
         var formData = readFormData();
         if (selectedRow == null){
             //insertNewRecord(formData);
@@ -139,42 +139,42 @@ function onFormSubmit() {
 
 function readFormData() {
     var formData = {};
-    formData["user_name"] = document.getElementById("user_name").value;
-    formData["user_pass"] = document.getElementById("user_pass").value;
-    formData["email"] = document.getElementById("email").value;
-    formData["salary"] = document.getElementById("salary").value;
+    formData["isbn"] = document.getElementById("isbn").value;
+    formData["title"] = document.getElementById("title").value;
+    formData["stock"] = document.getElementById("stock").value;
+    formData["price"] = document.getElementById("price").value;
     return formData;
 }
 
 function insertNewRecord(data) {
-    var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
+    var table = document.getElementById("bookList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
     cell1 = newRow.insertCell(0);
-    cell1.innerHTML = data.user_name;
+    cell1.innerHTML = data.isbn;
     cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.user_pass;
+    cell2.innerHTML = data.title;
     cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.email;
+    cell3.innerHTML = data.stock;
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.salary;
+    cell4.innerHTML = data.price;
     cell5 = newRow.insertCell(4);
     cell5.innerHTML = `<button onClick="onEdit(this)" class="btn btn-info">Edit</button>
                        <button onClick="onDelete(this)" class="btn btn-danger">Delete</button>`;
 }
 
 function insertNewRecordFromDB(data) {
-  document.getElementById("employeeList").getElementsByTagName('tbody')[0].replaceChildren();
-  var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
+  document.getElementById("bookList").getElementsByTagName('tbody')[0].replaceChildren();
+  var table = document.getElementById("bookList").getElementsByTagName('tbody')[0];
   for (var i = 0; i < data.length; i++) {
   var newRow = table.insertRow(table.length);
   cell1 = newRow.insertCell(0);
-  cell1.innerHTML = data[i].nombre_usuario;
+  cell1.innerHTML = data[i].isbn;
   cell2 = newRow.insertCell(1);
-  cell2.innerHTML = data[i].pass;
+  cell2.innerHTML = data[i].title;
   cell3 = newRow.insertCell(2);
-  cell3.innerHTML = data[i].email;
+  cell3.innerHTML = data[i].stock;
   cell4 = newRow.insertCell(3);
-  cell4.innerHTML = data[i].salario;
+  cell4.innerHTML = data[i].price;
   cell5 = newRow.insertCell(4);
   cell5.innerHTML = `<button onClick="onEdit(this)" class="btn btn-info">Edit</button>
                      <button onClick="onDelete(this)" class="btn btn-danger">Delete</button>`;
@@ -184,26 +184,26 @@ function insertNewRecordFromDB(data) {
 }
 
 function resetForm() {
-    document.getElementById("user_name").value = "";
-    document.getElementById("user_pass").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("salary").value = "";
+    document.getElementById("isbn").value = "";
+    document.getElementById("title").value = "";
+    document.getElementById("stock").value = "";
+    document.getElementById("price").value = "";
     selectedRow = null;
 }
 
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
-    document.getElementById("user_name").value = selectedRow.cells[0].innerHTML;
-    document.getElementById("user_pass").value = selectedRow.cells[1].innerHTML;
-    document.getElementById("email").value = selectedRow.cells[2].innerHTML;
-    document.getElementById("salary").value = selectedRow.cells[3].innerHTML;
+    document.getElementById("isbn").value = selectedRow.cells[0].innerHTML;
+    document.getElementById("title").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("stock").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("price").value = selectedRow.cells[3].innerHTML;
     localStorage.setItem('editValue', td.parentElement.parentElement.lastElementChild.textContent);
 }
 function updateRecord(formData) {
-    selectedRow.cells[0].innerHTML = formData.user_name;
-    selectedRow.cells[1].innerHTML = formData.user_pass;
-    selectedRow.cells[2].innerHTML = formData.email;
-    selectedRow.cells[3].innerHTML = formData.salary;
+    selectedRow.cells[0].innerHTML = formData.isbn;
+    selectedRow.cells[1].innerHTML = formData.title;
+    selectedRow.cells[2].innerHTML = formData.stock;
+    selectedRow.cells[3].innerHTML = formData.price;
     let td = localStorage.getItem('editValue');
     updateFromDB(td,formData);
 }
@@ -211,46 +211,46 @@ function updateRecord(formData) {
 function onDelete(td) {
     if (confirm('Are you sure to delete this record ?')) {
         row = td.parentElement.parentElement;
-        document.getElementById("employeeList").deleteRow(row.rowIndex);
+        document.getElementById("bookList").deleteRow(row.rowIndex);
         deleteFromDB(td);
         resetForm();
     }
 }
 function validate() {
     isValid = true;
-    if (document.getElementById("user_name").value == "") {
+    if (document.getElementById("isbn").value == "") {
         isValid = false;
-        document.getElementById("user_nameValidationError").classList.remove("hide");
+        document.getElementById("isbnValidationError").classList.remove("hide");
     } else {
         isValid = true;
-        if (!document.getElementById("user_nameValidationError").classList.contains("hide"))
-            document.getElementById("user_nameValidationError").classList.add("hide");
+        if (!document.getElementById("isbnValidationError").classList.contains("hide"))
+            document.getElementById("isbnValidationError").classList.add("hide");
     }
     return isValid;
 }
 
 function validatePass() {
   isValid = true;
-  if (document.getElementById("user_pass").value == "") {
+  if (document.getElementById("title").value == "") {
       isValid = false;
-      document.getElementById("user_passValidationError").classList.remove("hide");
+      document.getElementById("titleValidationError").classList.remove("hide");
   } else {
       isValid = true;
-      if (!document.getElementById("user_passValidationError").classList.contains("hide"))
-          document.getElementById("user_passValidationError").classList.add("hide");
+      if (!document.getElementById("titleValidationError").classList.contains("hide"))
+          document.getElementById("titleValidationError").classList.add("hide");
   }
   return isValid;
 }
 
-function validateEmail() {
+function validatestock() {
   isValid = true;
-  if (document.getElementById("email").value == "") {
+  if (document.getElementById("stock").value == "") {
       isValid = false;
-      document.getElementById("emailValidationError").classList.remove("hide");
+      document.getElementById("stockValidationError").classList.remove("hide");
   } else {
       isValid = true;
-      if (!document.getElementById("emailValidationError").classList.contains("hide"))
-          document.getElementById("emailValidationError").classList.add("hide");
+      if (!document.getElementById("stockValidationError").classList.contains("hide"))
+          document.getElementById("stockValidationError").classList.add("hide");
   }
   return isValid;
 }
