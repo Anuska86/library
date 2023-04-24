@@ -16,7 +16,7 @@
   });
 })()
 
-function getUsers() {
+function getBooks() {
   fetch(`http://localhost:8000/book`, {
     method: 'GET',
     headers: {
@@ -65,7 +65,7 @@ function toogleChecks(isValid,response){
   }
 }
 
-  function createUser(formData) {
+  function createBook(formData) {
     fetch('http://localhost:8000/book', {
       method: 'POST',
       headers: {
@@ -125,8 +125,8 @@ function onFormSubmit() {
         var formData = readFormData();
         if (selectedRow == null){
             //insertNewRecord(formData);
-            createUser(formData);
-            getUsers()
+            createBook(formData);
+            getBooks()
         }
         
         else{
