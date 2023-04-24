@@ -42,11 +42,11 @@
           <label>Stock</label><label class="validation-error hide" id="stockValidationError"
           >Campo requerido</label
         >
-          <input type="number" step="0.01" name="stock" id="stock" class="fullWidth"/>
+          <input type="number" step="1"  min="0" name="stock" id="stock" class="fullWidth"/>
         </div>
         <div>
           <label>Price</label>
-          <input type="number" step="0.01" name="price" id="price" />
+          <input type="number" step="0.01"  min="0" name="price" id="price" />
         </div>
         <div>
           <label>Language</label><label class="validation-error hide" id="langValidationError"
@@ -56,11 +56,11 @@
         </div>
         <div>
           <label>Category ID</label>
-          <input type="number" step="1" name="category_id" id="category_id" />
+          <input type="number" step="1"  min="1" name="category_id" id="category_id" />
         </div>
         <div>
           <label>Author ID</label>
-          <input type="number" step="1" name="author_id" id="author_id" />
+          <input type="number" step="1"  min="1" name="author_id" id="author_id" />
         </div>
         <div class="form-action-buttons">
           <input type="submit" value="Guardar" />
