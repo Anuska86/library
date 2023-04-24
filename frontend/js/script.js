@@ -78,7 +78,9 @@ function toogleChecks(isValid,response){
         "title": formData.title,
         "stock": formData.stock,
         "price": formData.price,
-        "lang": "EN"
+        "lang": formData.lang,
+        "category_id": formData.category_id,
+        "author_id": formData.author_id
       })
     })
       .then(response => response.json())
@@ -98,7 +100,9 @@ function toogleChecks(isValid,response){
         "title": formData.title,
         "stock": formData.stock,
         "price": formData.price,
-        "lang": "EN"
+        "lang": formData.lang,
+        "category_id": formData.category_id,
+        "author_id": formData.author_id
       })
     })
       .then(response => response.json())
@@ -143,6 +147,7 @@ function readFormData() {
     formData["title"] = document.getElementById("title").value;
     formData["stock"] = document.getElementById("stock").value;
     formData["price"] = document.getElementById("price").value;
+    formData["lang"] = document.getElementById("lang").value;
     formData["category_id"] = document.getElementById("category_id").value;
     formData["author_id"] = document.getElementById("author_id").value;
     return formData;
@@ -160,11 +165,13 @@ function insertNewRecord(data) {
     cell4 = newRow.insertCell(3);
     cell4.innerHTML = data.price;
     cell5 = newRow.insertCell(4);
-    cell5.innerHTML = data.category_id;
+    cell5.innerHTML = data.lang;
     cell6 = newRow.insertCell(5);
-    cell6.innerHTML = data.author_id;
+    cell6.innerHTML = data.category_id;
     cell7 = newRow.insertCell(6);
-    cell7.innerHTML = `<button onClick="onEdit(this)" class="btn btn-info">Edit</button>
+    cell7.innerHTML = data.author_id;
+    cell8 = newRow.insertCell(7);
+    cell8.innerHTML = `<button onClick="onEdit(this)" class="btn btn-info">Edit</button>
                        <button onClick="onDelete(this)" class="btn btn-danger">Delete</button>`;
 }
 
@@ -182,14 +189,14 @@ function insertNewRecordFromDB(data) {
   cell4 = newRow.insertCell(3);
   cell4.innerHTML = data[i].price;
   cell5 = newRow.insertCell(4);
-  cell5.innerHTML = data[i].category_id;
+  cell5.innerHTML = data[i].lang;
   cell6 = newRow.insertCell(5);
-  cell6.innerHTML = data[i].author_id;
+  cell6.innerHTML = data[i].category_id;
   cell7 = newRow.insertCell(6);
-  cell7.innerHTML = `<button onClick="onEdit(this)" class="btn btn-info">Edit</button>
-                     <button onClick="onDelete(this)" class="btn btn-danger">Delete</button>`;
+  cell7.innerHTML = data[i].author_id;
   cell8 = newRow.insertCell(7);
-  cell8.innerHTML = data[i].id;
+  cell8.innerHTML = `<button onClick="onEdit(this)" class="btn btn-info">Edit</button>
+                     <button onClick="onDelete(this)" class="btn btn-danger">Delete</button>`;
   }
 }
 
@@ -198,6 +205,7 @@ function resetForm() {
     document.getElementById("title").value = "";
     document.getElementById("stock").value = "";
     document.getElementById("price").value = "";
+    document.getElementById("lang").value = "";
     document.getElementById("category_id").value = "";
     document.getElementById("author_id").value = "";
     selectedRow = null;
@@ -209,8 +217,9 @@ function onEdit(td) {
     document.getElementById("title").value = selectedRow.cells[1].innerHTML;
     document.getElementById("stock").value = selectedRow.cells[2].innerHTML;
     document.getElementById("price").value = selectedRow.cells[3].innerHTML;
-    document.getElementById("category_id").value = selectedRow.cells[4].innerHTML;
-    document.getElementById("author_id").value = selectedRow.cells[5].innerHTML;
+    document.getElementById("lang").value = selectedRow.cells[4].innerHTML;
+    document.getElementById("category_id").value = selectedRow.cells[5].innerHTML;
+    document.getElementById("author_id").value = selectedRow.cells[6].innerHTML;
     localStorage.setItem('editValue', td.parentElement.parentElement.lastElementChild.textContent);
 }
 function updateRecord(formData) {
@@ -218,8 +227,9 @@ function updateRecord(formData) {
     selectedRow.cells[1].innerHTML = formData.title;
     selectedRow.cells[2].innerHTML = formData.stock;
     selectedRow.cells[3].innerHTML = formData.price;
-    selectedRow.cells[4].innerHTML = formData.category_id;
-    selectedRow.cells[5].innerHTML = formData.author_id;
+    selectedRow.cells[4].innerHTML = formData.lang;
+    selectedRow.cells[5].innerHTML = formData.category_id;
+    selectedRow.cells[6].innerHTML = formData.author_id;
     let td = localStorage.getItem('editValue');
     updateFromDB(td,formData);
 }
