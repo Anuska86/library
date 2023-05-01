@@ -51,7 +51,7 @@ function Book() {
   };
   this.delete = function(id,res) {
     connection.acquire(function(err,con) {
-      con.query('delete from book where id = ?', id, function(err,result) {
+      con.query('delete from book where isbn = ?', id, function(err,result) {
         con.release();
         if (err) {
           res.send({status:1, message:'book delete fail'});

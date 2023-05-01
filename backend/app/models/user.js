@@ -16,6 +16,7 @@ function User() {
       con.query('select * from user where user_name = ? and pass = ?', [user_name,user_pass], function(err,result) {
         con.release();
         res.send(result);
+        console.log(result);
         console.log("Check user successful");
       });
     });
