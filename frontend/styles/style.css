@@ -112,3 +112,11 @@ hr {
 .little-margin{
   margin-bottom: 10px;
 }
+
+footer {
+  margin-top: 10px;;
+  text-align: center;
+  padding: 3px;
+  background-color: black;
+  color: white;
+}

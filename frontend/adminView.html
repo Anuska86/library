@@ -34,7 +34,10 @@
         </ul>
       </div>
     </nav>
-    <div class="books-form">
+    <div style="
+    margin: 3em;
+">
+    <div class="books-form" style="display: table-cell;">
       <form
         onsubmit="event.preventDefault();onFormSubmit();"
         autocomplete="off"
@@ -87,8 +90,8 @@
         </div>
       </form>
     </div>
-    <br />
-    <div class="books-table">
+
+    <div class="books-table" style="display: table-cell;">
       <table class="list" id="bookList">
         <thead>
           <tr>
@@ -106,6 +109,11 @@
         <tbody></tbody>
       </table>
     </div>
+  </div>
+    <footer>
+      <p>Author: Ana Sappia Rey<br>
+      <a href="mailto:ana@example.com">ana@example.com</a></p>
+    </footer>
     <script src="js/script.js"></script>
 
     <script>
