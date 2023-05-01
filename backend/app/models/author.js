@@ -35,7 +35,7 @@ function Author() {
   };
   this.update = function(author,id,res) {
     connection.acquire(function(err,con) {
-      let query = `update author set nombre_author='${author.nombre_author}',pass='${author.pass}',email='${author.email}',salario=${author.salario} where id=${id}`
+      let query = `update author set nombre_author='${author.nombre_author}',pass='${author.pass}',email='${author.email}',salary=${author.salary} where id=${id}`
       con.query(query, function(err,result) {
         con.release();
         if (err) {

@@ -1,5 +1,23 @@
 create schema library;
 use library;
+
+create table user(
+	id int auto_increment primary key,
+    user_name varchar(255),
+    pass varchar(255),
+    email varchar(255),
+    salary float(9,2),
+    type varchar(255)
+);
+insert into user (user_name, pass, email, salary, type) values ('MarcMarsella','1234', 'mmarsella@miempresa.com', 20000.34, 'Administrador');
+insert into user (user_name, pass, email, salary, type) values ('LuisMaldonado','1111', 'lmaldonado@miempresa.com', 18065.37, 'user');
+insert into user (user_name, pass, email, salary, type) values ('EstibalizLaza','1222', 'elara@miempresa.com', 20200.39, 'user');
+insert into user (user_name, pass, email, salary, type) values ('JonMayura','2222', 'jmayura@miempresa.com', 35000.12, 'user');
+insert into user (user_name, pass, email, salary, type) values ('JaneKole','3333', 'jkole@miempresa.com', 38001.99, 'Administrador');
+
+select * from user;
+
+
 create table author(
 	id int auto_increment primary key,
     name varchar(255),

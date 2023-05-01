@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Vista administrador</title>
+    <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/style_admin_view.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link
@@ -18,8 +19,21 @@
   </head>
 
   <body>
-    <h1><center>Vista administrador</center></h1>
-    <hr />
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark little-margin">  
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="./adminView.html">Admin Panel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./graphView.html">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./login.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <div class="books-form">
       <form
         onsubmit="event.preventDefault();onFormSubmit();"
@@ -43,6 +57,12 @@
           >Campo requerido</label
         >
           <input type="number" step="1"  min="0" name="stock" id="stock" class="fullWidth"/>
+        </div>
+        <div>
+          <label>Sales</label><label class="validation-error hide" id="salesValidationError"
+          >Campo requerido</label
+        >
+          <input type="number" step="1"  min="0" name="sales" id="sales" class="fullWidth"/>
         </div>
         <div>
           <label>Price</label>
@@ -75,6 +95,7 @@
             <th>ISBN</th>
             <th>Title</th>
             <th>Stock</th>
+            <th>Sales</th>
             <th>Price</th>
             <th>Language</th>
             <th>Category</th>

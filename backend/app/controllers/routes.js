@@ -1,4 +1,4 @@
-var usuario = require('../models/usuario');
+var user = require('../models/user');
 var author = require('../models/author');
 var book = require('../models/book');
 var category = require('../models/category');
@@ -6,20 +6,20 @@ var category = require('../models/category');
 module.exports = {
   configure: function(app) {
     //Login
-    app.get('/usuario',function(req,res) {
-      usuario.get(res);
+    app.get('/user',function(req,res) {
+      user.get(res);
     });
-    app.get('/usuario/:user_name/:user_pass',function(req,res) {
-      usuario.checkUser(req.params.user_name,req.params.user_pass,res);
+    app.get('/user/:user_name/:user_pass',function(req,res) {
+      user.checkUser(req.params.user_name,req.params.user_pass,res);
     });
-    app.post('/usuario',function(req,res) {
-      usuario.create(req.body,res);
+    app.post('/user',function(req,res) {
+      user.create(req.body,res);
     });
-    app.put('/usuario/:id',function(req,res) {
-      usuario.update(req.body,req.params.id,res);
+    app.put('/user/:id',function(req,res) {
+      user.update(req.body,req.params.id,res);
     });
-    app.delete('/usuario/:id',function(req,res) {
-      usuario.delete(req.params.id,res);
+    app.delete('/user/:id',function(req,res) {
+      user.delete(req.params.id,res);
     });
     //Library author
     app.get('/author/:id',function(req,res) {

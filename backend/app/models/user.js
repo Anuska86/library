@@ -1,10 +1,10 @@
 var request = require("request");
 var connection = require ('../config/connection');
 
-function Usuario() {
+function User() {
   this.get = function(res) {
     connection.acquire(function(err,con) {
-      con.query('select * from usuario', function(err,result) {
+      con.query('select * from user', function(err,result) {
         con.release();
         res.send(result);
         console.log("Get successful");
@@ -13,35 +13,35 @@ function Usuario() {
   };
   this.checkUser = function(user_name,user_pass,res) {
     connection.acquire(function(err,con) {
-      con.query('select * from usuario where nombre_usuario = ? and pass = ?', [user_name,user_pass], function(err,result) {
+      con.query('select * from user where user_name = ? and pass = ?', [user_name,user_pass], function(err,result) {
         con.release();
         res.send(result);
         console.log("Check user successful");
       });
     });
   };
-  this.create = function(usuario,res) {
+  this.create = function(user,res) {
     connection.acquire(function(err,con) {
-      con.query('insert into usuario set ?', usuario, function(err,result) {
+      con.query('insert into user set ?', user, function(err,result) {
         con.release();
         if (err) {
-          res.send({status:1, message:'USUARIO creation fail'});
+          res.send({status:1, message:'USER creation fail'});
         } else {
-          res.send({status:0, message:'USUARIO create success'});
+          res.send({status:0, message:'USER create success'});
           console.log("Post successful");
         }
       });
     });
   };
-  this.update = function(usuario,id,res) {
+  this.update = function(user,id,res) {
     connection.acquire(function(err,con) {
-      let query = `update usuario set nombre_usuario='${usuario.nombre_usuario}',pass='${usuario.pass}',email='${usuario.email}',salario=${usuario.salario} where id=${id}`
+      let query = `update user set user_name='${user.user_name}',pass='${user.pass}',email='${user.email}',salary=${user.salary} where id=${id}`
       con.query(query, function(err,result) {
         con.release();
         if (err) {
-          res.send({status:1, message:'USUARIO update fail'});
+          res.send({status:1, message:'USER update fail'});
         } else {
-          res.send({status:0, message:'USUARIO update success'});
+          res.send({status:0, message:'USER update success'});
           console.log("Put successful");
         }
       });
@@ -49,12 +49,12 @@ function Usuario() {
   };
   this.delete = function(id,res) {
     connection.acquire(function(err,con) {
-      con.query('delete from usuario where id = ?', id, function(err,result) {
+      con.query('delete from user where id = ?', id, function(err,result) {
         con.release();
         if (err) {
-          res.send({status:1, message:'USUARIO delete fail'});
+          res.send({status:1, message:'USER delete fail'});
         } else {
-          res.send({status:0, message:'USUARIO delete success'});
+          res.send({status:0, message:'USER delete success'});
           console.log("Delete successful");
         }
       });
@@ -62,4 +62,4 @@ function Usuario() {
   };
 };
 
-module.exports = new Usuario();
+module.exports = new User();
