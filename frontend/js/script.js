@@ -229,7 +229,7 @@ function onEdit(td) {
     document.getElementById("lang").value = selectedRow.cells[5].innerHTML;
     document.getElementById("category_id").value = selectedRow.cells[6].innerHTML;
     document.getElementById("author_id").value = selectedRow.cells[7].innerHTML;
-    localStorage.setItem('editValue', td.parentElement.parentElement.lastElementChild.textContent);
+    localStorage.setItem('editValue', td.parentElement.parentElement.innerHTML.split('<td>')[1].split('</td>')[0]);
 }
 function updateRecord(formData) {
     selectedRow.cells[0].innerHTML = formData.isbn;

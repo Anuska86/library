@@ -35,9 +35,9 @@ function Book() {
       });
     });
   };
-  this.update = function(book,id,res) {
+  this.update = function(book,isbn,res) {
     connection.acquire(function(err,con) {
-      let query = `update book set nombre_book='${book.nombre_book}',pass='${book.pass}',email='${book.email}',salary=${book.salary} where id=${id}`
+      let query = `update book set title='${book.title}',stock=${book.stock},sales=${book.sales},price=${book.price},lang='${book.lang}',category_id=${book.category_id},author_id=${book.author_id} where isbn='${book.isbn}'`
       con.query(query, function(err,result) {
         con.release();
         if (err) {
