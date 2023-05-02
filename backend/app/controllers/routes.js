@@ -75,6 +75,9 @@ module.exports = {
     app.get('/finance/salesAndStocks',function(req,res) {
       finance.getSalesAndStocks(res);
     });
+    app.get('/finance/topBooks',function(req,res) {
+      finance.getTopBooks(res);
+    });
     /*
     app.post('/book',function(req,res) {
       book.create(req.body,res);

@@ -13,7 +13,20 @@ function Finance() {
       ON book.category_id = category.id`,
         function (err, result) {
           con.release();
-          console.log(result);
+          res.send(result);
+          console.log("Get successful");
+        }
+      );
+    });
+  };
+  this.getTopBooks = function (res) {
+    connection.acquire(function (err, con) {
+      con.query(
+        `SELECT *
+        FROM book
+        ORDER BY sales DESC;`,
+        function (err, result) {
+          con.release();
           res.send(result);
           console.log("Get successful");
         }

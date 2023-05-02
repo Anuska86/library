@@ -36,3 +36,30 @@ async function getSalesAndStocks() {
   });
 }
 
+async function getTopBooks() {
+  const response = await fetch('http://localhost:8000/finance/topBooks');
+  const data = await response.json();
+  labels = [];
+  stockValues = [];
+  for (i = 0; i < data.length; i++) {
+     labels.push(data[i].title);
+     stockValues.push(data[i].sales);
+  }
+  new Chart(document.getElementById("doughnut-chart"), {
+     type: 'doughnut',
+     data: {
+      labels: labels,
+      datasets: [{
+        backgroundColor: barColors,
+        data: stockValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Books by ranking"
+      }
+    }
+  });
+}
+
