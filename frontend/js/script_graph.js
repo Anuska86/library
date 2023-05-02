@@ -1,24 +1,38 @@
-(function() {
-  getSalesAndStocks();
-})()
-
-function getSalesAndStocks() {
-  fetch(`http://localhost:8000/finance/salesAndStocks`, {
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
-    },
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-    })
-.catch(function(err) {
-    console.info(err);
-});
+async function getSalesAndStocks() {
+  const response = await fetch('http://localhost:8000/finance/salesAndStocks');
+  const data = await response.json();
+  labels = [];
+  stockValues = [];
+  salesValues = [];
+  for (i = 0; i < data.length; i++) {
+     labels.push(data[i].title);
+     stockValues.push(data[i].stock_value);
+     salesValues.push(data[i].sales_value);
+  }
+  new Chart(document.getElementById("bar-chart"), {
+     type: 'bar',
+     data: {
+        labels: labels,
+        datasets: [
+           {
+              label: "Stock values",
+              backgroundColor: "red",
+              data: stockValues
+           },
+           {
+            label: "Sales values",
+            backgroundColor: "green",
+            data: salesValues
+         }
+        ]
+     },
+     options: {
+        legend: { display: true },
+        title: {
+           display: true,
+           text: 'Stock/Sales per book'
+        }
+     }
+  });
 }
 

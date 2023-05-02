@@ -8,7 +8,7 @@ INNER JOIN category
 ON book.category_id = category.id;
 
 -- Financial status
-SELECT *,(stock*price) AS 'stock_price',(sales*price) AS 'sales_price'
+SELECT *,(stock*price) AS 'stock_value',(sales*price) AS 'sales_value'
 FROM book
 INNER JOIN author
 ON book.author_id = author.id

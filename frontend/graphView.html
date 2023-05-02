@@ -30,6 +30,10 @@ crossorigin="anonymous"
       </ul>
     </div>
   </nav>
+  <div style="width: 32em; height: 24em">
+    <canvas id="bar-chart">
+    </canvas>
+ </div>
 <canvas id="barChart" style="width:100%;max-width:600px;display: inline"></canvas>
 <canvas id="doughnutChart" style="width:100%;max-width:600px;display: inline"></canvas>
 <canvas id="lineChart" style="width:100%;max-width:600px;display: inline"></canvas>
@@ -126,6 +130,8 @@ new Chart("barChart", {
   }
 });
 </script>
-
+<script>
+getSalesAndStocks();
+</script>
 </body>
 </html>
