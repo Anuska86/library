@@ -2,6 +2,7 @@ var user = require('../models/user');
 var author = require('../models/author');
 var book = require('../models/book');
 var category = require('../models/category');
+var finance = require('../models/finance');
 
 module.exports = {
   configure: function(app) {
@@ -70,7 +71,10 @@ module.exports = {
     app.get('/category/:id',function(req,res) {
       category.getOneCategory(req.params.id,res);
     });
-    
+    //Financials
+    app.get('/finance/salesAndStocks',function(req,res) {
+      finance.getSalesAndStocks(res);
+    });
     /*
     app.post('/book',function(req,res) {
       book.create(req.body,res);
