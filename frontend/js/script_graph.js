@@ -37,6 +37,13 @@ async function getSalesAndStocks() {
 }
 
 async function getTopBooks() {
+   var barColors = [
+      "#b91d47",
+      "#00aba9",
+      "#2b5797",
+      "#e8c3b9",
+      "#1e7145"
+    ];
   const response = await fetch('http://localhost:8000/finance/topBooks');
   const data = await response.json();
   labels = [];

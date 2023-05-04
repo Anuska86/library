@@ -38,7 +38,6 @@ crossorigin="anonymous"
   <canvas id="doughnut-chart">
   </canvas>
 </div>
-<canvas id="barChart" style="width:100%;max-width:600px;display: inline"></canvas>
 <canvas id="doughnutChart" style="width:100%;max-width:600px;display: inline"></canvas>
 <canvas id="lineChart" style="width:100%;max-width:600px;display: inline"></canvas>
 <footer>
@@ -46,34 +45,7 @@ crossorigin="anonymous"
   <a href="mailto:ana@example.com">ana@example.com</a></p>
 </footer>
 <script>
-    //Doughnut
-var books = ["Historical novel", "Thriller", "Fantasy"];
-var stock = [55, 49, 44];
-var barColors = [
-  "#b91d47",
-  "#00aba9",
-  "#2b5797",
-  "#e8c3b9",
-  "#1e7145"
-];
-
-new Chart("doughnutChart", {
-  type: "doughnut",
-  data: {
-    labels: books,
-    datasets: [{
-      backgroundColor: barColors,
-      data: stock
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "Books by categories"
-    }
-  }
-});
-
+   
 //Lines
 
 const xValues = [100,200,300,400,500,600,700,800,900,1000];
@@ -102,35 +74,6 @@ new Chart("lineChart", {
   },
   options: {
     legend: {display: true}
-  }
-});
-
-//Bars
-var topBooks = ["The Lord of the Rings", "The Hobbit", "Roma soy yo"];
-var labels = ["Stock","Sales"]
-var totalSales = [44, 24, 15];
-
-new Chart("barChart", {
-  type: "bar",
-  data: {
-    labels: topBooks,
-    datasets: [{
-        label:labels[0],
-      backgroundColor: "red",
-      data: [44, 15,4]
-    },
-    {
-        label:labels[1],
-      backgroundColor: "green",
-      data: [24, 7,12]
-    }]
-  },
-  options: {
-    legend: {display: true},
-    title: {
-      display: true,
-      text: "Sales/Stock per books"
-    }
   }
 });
 </script>
