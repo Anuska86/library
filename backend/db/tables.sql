@@ -53,3 +53,6 @@ create table book(
 insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-0007123810','The Lord of the Rings',10,30,20,'EN',3,2);
 insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-0007458424','The Hobbit',8,50,18.5,'EN',3,2);
 insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-8466671781','Roma soy yo',30,12,20.5,'ES',1,1);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-0007123855','Africanus',10,30,20,'ES',3,1);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-0007458477','Las legiones malditas',8,50,18.5,'ES',3,1);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-8466671799','La traición de Roma',30,12,20.5,'ES',3,1);

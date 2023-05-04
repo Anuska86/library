@@ -33,6 +33,22 @@ function Finance() {
       );
     });
   };
+  this.getTopCategories = function (res) {
+    connection.acquire(function (err, con) {
+      con.query(
+        `SELECT category.name, SUM(book.sales) AS sales
+        FROM book
+        INNER JOIN category
+        ON book.category_id = category.id
+        GROUP BY category.name;`,
+        function (err, result) {
+          con.release();
+          res.send(result);
+          console.log("Get successful");
+        }
+      );
+    });
+  };
 }
 
 module.exports = new Finance();

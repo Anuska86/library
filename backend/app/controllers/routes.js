@@ -78,15 +78,8 @@ module.exports = {
     app.get('/finance/topBooks',function(req,res) {
       finance.getTopBooks(res);
     });
-    /*
-    app.post('/book',function(req,res) {
-      book.create(req.body,res);
+    app.get('/finance/topCategories',function(req,res) {
+      finance.getTopCategories(res);
     });
-    app.put('/book/:id',function(req,res) {
-      book.update(req.body,req.params.id,res);
-    });
-    app.delete('/book/:id',function(req,res) {
-      book.delete(req.params.id,res);
-    });*/
   }
 };

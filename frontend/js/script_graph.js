@@ -70,3 +70,38 @@ async function getTopBooks() {
   });
 }
 
+async function getTopCategories() {
+   var barColors = [
+      "#b91d47",
+      "#00aba9",
+      "#2b5797",
+      "#e8c3b9",
+      "#1e7145"
+    ];
+  const response = await fetch('http://localhost:8000/finance/topCategories');
+  const data = await response.json();
+  labels = [];
+  salesValues = [];
+  for (i = 0; i < data.length; i++) {
+     labels.push(data[i].name);
+     salesValues.push(data[i].sales);
+  }
+  new Chart(document.getElementById("categories-chart"), {
+     type: 'line',
+     data: {
+      labels: labels,
+      datasets: [{
+        label: "Number of",
+        borderColor: "blue",
+        data: salesValues,
+        fill: false
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Categories by sales"
+      }
+    }
+  });
+}

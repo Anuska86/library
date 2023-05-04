@@ -38,8 +38,12 @@ crossorigin="anonymous"
   <canvas id="doughnut-chart">
   </canvas>
 </div>
-<canvas id="doughnutChart" style="width:100%;max-width:600px;display: inline"></canvas>
+<div style="width: 32em; height: 24em">
+  <canvas id="categories-chart">
+  </canvas>
+</div>
 <canvas id="lineChart" style="width:100%;max-width:600px;display: inline"></canvas>
+
 <footer>
   <p>Author: Ana Sappia Rey<br>
   <a href="mailto:ana@example.com">ana@example.com</a></p>
@@ -80,6 +84,7 @@ new Chart("lineChart", {
 <script>
 getSalesAndStocks();
 getTopBooks();
+getTopCategories();
 </script>
 </body>
 </html>
