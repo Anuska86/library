@@ -42,7 +42,13 @@ async function getTopBooks() {
       "#00aba9",
       "#2b5797",
       "#e8c3b9",
-      "#1e7145"
+      "#1e7145",
+      "#ba3de3",
+      "#c28625",
+      "#40e6f5",
+      "#aaf0bf",
+      "#be8dcc",
+      "#c25779",
     ];
   const response = await fetch('http://localhost:8000/finance/topBooks');
   const data = await response.json();
@@ -71,13 +77,6 @@ async function getTopBooks() {
 }
 
 async function getTopCategories() {
-   var barColors = [
-      "#b91d47",
-      "#00aba9",
-      "#2b5797",
-      "#e8c3b9",
-      "#1e7145"
-    ];
   const response = await fetch('http://localhost:8000/finance/topCategories');
   const data = await response.json();
   labels = [];

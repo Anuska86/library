@@ -27,6 +27,8 @@ create table author(
 insert into author (name, surname) values ('Santiago','Posteguillo');
 insert into author (name, surname) values ('J.R.R','Tolkien');
 insert into author (name, surname) values ('Michael','Connelly');
+insert into author (name, surname) values ('Yabuki','Kentaro');
+insert into author (name, surname) values ('Julia','Quinn');
 
 create table category(
 	id int auto_increment primary key,
@@ -36,6 +38,9 @@ create table category(
 insert into category (name) values ('Historical novel');
 insert into category (name) values ('Thriller');
 insert into category (name) values ('Fantasy');
+insert into category (name) values ('Manga');
+insert into category (name) values ('Romance');
+
 
 create table book(
 	isbn varchar(40),
@@ -56,3 +61,6 @@ insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) value
 insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-0007123855','Africanus',10,30,20,'ES',3,1);
 insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-0007458477','Las legiones malditas',8,50,18.5,'ES',3,1);
 insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-8466671799','La traición de Roma',30,12,20.5,'ES',3,1);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-1113458477','Black Cat',8,50,18.5,'EN',4,4);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-2226671799','The Duke and I',30,12,20.5,'EN',5,5);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-3337458477','El Eco Negro',8,50,18.5,'ES',2,3);
