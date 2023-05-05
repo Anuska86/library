@@ -294,7 +294,7 @@ function validatestock() {
 function tempAlert(msg,duration)
 {
      var el = document.createElement("div");
-     el.setAttribute("style","position:absolute;top:40%;left:20%;background-color:white;");
+     el.setAttribute("style","position:absolute;top:40%;left:41%;background-color:white;width:20em;border-radius:25px;text-align:center;color:white");
      el.innerHTML = msg;
      el.style.background = "green";
      setTimeout(function(){
@@ -304,4 +304,4 @@ function tempAlert(msg,duration)
 }
 
 var d = document.getElementById('modalButton');
-d.onclick = function(){ tempAlert("Success!!",2000); };
+d.onclick = function(){ tempAlert("Success!!",4000); };
