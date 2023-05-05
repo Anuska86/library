@@ -126,3 +126,7 @@ footer {
   margin-right: auto;
   padding: 5em;
 }
+
+.navBarBorder{
+  border-bottom: 4px solid #e3d10e;
+}
