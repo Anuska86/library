@@ -29,6 +29,8 @@ insert into author (name, surname) values ('J.R.R','Tolkien');
 insert into author (name, surname) values ('Michael','Connelly');
 insert into author (name, surname) values ('Yabuki','Kentaro');
 insert into author (name, surname) values ('Julia','Quinn');
+insert into author (name, surname) values ('Andrea','Longarela');
+insert into author (name, surname) values ('Stephen','King');
 
 create table category(
 	id int auto_increment primary key,
@@ -40,6 +42,8 @@ insert into category (name) values ('Thriller');
 insert into category (name) values ('Fantasy');
 insert into category (name) values ('Manga');
 insert into category (name) values ('Romance');
+insert into category (name) values ('Terror');
+
 
 
 create table book(
@@ -64,3 +68,11 @@ insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) value
 insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-1113458477','Black Cat',8,50,18.5,'EN',4,4);
 insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-2226671799','The Duke and I',30,12,20.5,'EN',5,5);
 insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-3337458477','El Eco Negro',8,50,18.5,'ES',2,3);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-0007123821','The Silmarillion',4,2,32,'EN',3,2);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-0007123541','Naruto vol1',6,4,25,'ES',4,4);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-0007873541','Bleach vol1',8,6,25,'ES',4,4);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-3407873541','Te espero en el fin del mundo',12,8,22,'ES',5,6);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-3456873541','Valiente Vera, pequeña Sara',5,2,16,'ES',5,6);
+insert into book (isbn,title,stock,sales,price,lang,category_id,author_id) values ('978-3456875441','El Resplandor',8,20,15,'ES',6,7);
+
+
