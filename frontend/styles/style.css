@@ -119,3 +119,10 @@ footer {
   background-color: black;
   color: white;
 }
+
+.login-form{
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5em;
+}

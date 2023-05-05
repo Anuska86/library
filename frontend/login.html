@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 
 <head>
-  <link rel="stylesheet" href="styles/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-  <div id="logIn" class="center">
-
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark little-margin">  
+    <div style="margin-left: auto;
+    margin-right: auto;
+    height: 4em;">
+    </div>
+    <div style="margin-right: 15px;">
+    </div>
+  </nav>
+  <div id="logIn" class="center login-form">
     <form>
       Username<br />
       <input type="text" id="user_input" name="username" class="center-text"/><br />
       Password<br />
       <input type="password" id="pass_input" name="password" class="center-text"/><br />
       <input id="loginBtn" class="btn btn-primary btn-lg btn-block" value="Login" disabled="disabled" onclick="checkUser()"/>
-      <a id="admin_link" href="./adminView.html" style="display:none;margin-top: 2em;">A la web!!</a>
+      <button id="admin_link" style="margin-top:2em;border-radius:25px;display:none"><a href="./adminView.html" style="color:white">A la web!!</a></button>
       <div id="admin_link_alert" class="alert alert-danger" role="alert" style="display:none;">
         Datos incorrectos
       </div>
   </form>
   </div>
-
+  <footer style="margin-top: 5em;">
+    <p>Author: Ana Sappia Rey<br>
+    <a href="mailto:ana@example.com">ana@example.com</a></p>
+  </footer>
   <script src="js/script.js">
   </script>
 
