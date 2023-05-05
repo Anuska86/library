@@ -49,6 +49,15 @@ async function getTopBooks() {
       "#aaf0bf",
       "#be8dcc",
       "#c25779",
+      "#c4ab91",
+      "#e39612",
+      "#e86bb2",
+      "#8063d4",
+      "#8bd463",
+      "#d48163",
+      "#c8c0cf",
+      "#ad91c4",
+
     ];
   const response = await fetch('http://localhost:8000/finance/topBooks');
   const data = await response.json();
