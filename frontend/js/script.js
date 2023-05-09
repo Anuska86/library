@@ -177,7 +177,7 @@ function insertNewRecord(data) {
     cell8.innerHTML = data.author_id;
     cell9 = newRow.insertCell(8);
     cell9.innerHTML = `<button onClick="onEdit(this)" class="btn btn-info">Edit</button>
-                       <button onClick="onDelete(this)" class="btn btn-danger">Delete</button>`;
+                       <button onClick="onDelete(this)" class="btn" style="background:#90323d">Delete</button>`;
 }
 
 function insertNewRecordFromDB(data) {
@@ -187,23 +187,31 @@ function insertNewRecordFromDB(data) {
   var newRow = table.insertRow(table.length);
   cell1 = newRow.insertCell(0);
   cell1.innerHTML = data[i].isbn;
+  cell1.style="text-align:center";
   cell2 = newRow.insertCell(1);
   cell2.innerHTML = data[i].title;
+  cell2.style="text-align:center";
   cell3 = newRow.insertCell(2);
   cell3.innerHTML = data[i].stock;
+  cell3.style="text-align:center";
   cell4 = newRow.insertCell(3);
   cell4.innerHTML = data[i].sales;
+  cell4.style="text-align:center";
   cell5 = newRow.insertCell(4);
   cell5.innerHTML = data[i].price;
+  cell5.style="text-align:center";
   cell6 = newRow.insertCell(5);
   cell6.innerHTML = data[i].lang;
+  cell6.style="text-align:center";
   cell7 = newRow.insertCell(6);
   cell7.innerHTML = data[i].category_id;
+  cell7.style="text-align:center";
   cell8 = newRow.insertCell(7);
   cell8.innerHTML = data[i].author_id;
+  cell8.style="text-align:center";
   cell9 = newRow.insertCell(8);
-  cell9.innerHTML = `<button onClick="onEdit(this)" class="btn btn-info">Edit</button>
-                     <button onClick="onDelete(this)" class="btn btn-danger">Delete</button>`;
+  cell9.innerHTML = `<button onClick="onEdit(this)" class="btn" style="background:#6b9080;color:white">Edit</button>
+                     <button onClick="onDelete(this)" class="btn" style="background:#90323d;color:white">Delete</button>`;
   }
 }
 
