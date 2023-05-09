@@ -37,28 +37,12 @@ async function getSalesAndStocks() {
 }
 
 async function getTopBooks() {
-   var barColors = [
-      "#b91d47",
-      "#00aba9",
-      "#2b5797",
-      "#e8c3b9",
-      "#1e7145",
-      "#ba3de3",
-      "#c28625",
-      "#40e6f5",
-      "#aaf0bf",
-      "#be8dcc",
-      "#c25779",
-      "#c4ab91",
-      "#e39612",
-      "#e86bb2",
-      "#8063d4",
-      "#8bd463",
-      "#d48163",
-      "#c8c0cf",
-      "#ad91c4",
-
-    ];
+  
+  var barColors = [];
+  for (let i = 0; i < 100; i++) {
+    color = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+    barColors.push(color);
+  }
   const response = await fetch('http://localhost:8000/finance/topBooks');
   const data = await response.json();
   labels = [];
