@@ -130,14 +130,12 @@ function onFormSubmit() {
     if (validate() && validatePass() && validatestock()) {
         var formData = readFormData();
         if (selectedRow == null){
-            //insertNewRecord(formData);
             createBook(formData);
             getBooks()
         }
         
         else{
             updateRecord(formData);
-            //updateUser(formData);
         }
         resetForm();
     }
@@ -154,30 +152,6 @@ function readFormData() {
     formData["category_id"] = document.getElementById("category_id").value;
     formData["author_id"] = document.getElementById("author_id").value;
     return formData;
-}
-
-function insertNewRecord(data) {
-    var table = document.getElementById("bookList").getElementsByTagName('tbody')[0];
-    var newRow = table.insertRow(table.length);
-    cell1 = newRow.insertCell(0);
-    cell1.innerHTML = data.isbn;
-    cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.title;
-    cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.stock;
-    cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.sales;
-    cell5 = newRow.insertCell(4);
-    cell5.innerHTML = data.price;
-    cell6 = newRow.insertCell(5);
-    cell6.innerHTML = data.lang;
-    cell7 = newRow.insertCell(6);
-    cell7.innerHTML = data.category_id;
-    cell8 = newRow.insertCell(7);
-    cell8.innerHTML = data.author_id;
-    cell9 = newRow.insertCell(8);
-    cell9.innerHTML = `<button onClick="onEdit(this)" class="btn btn-info">Edit</button>
-                       <button onClick="onDelete(this)" class="btn" style="background:#90323d">Delete</button>`;
 }
 
 function insertNewRecordFromDB(data) {
