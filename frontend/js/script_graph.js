@@ -16,12 +16,12 @@ async function getSalesAndStocks() {
         datasets: [
            {
               label: "Stock values",
-              backgroundColor: "red",
+              backgroundColor: "#6b9080",
               data: stockValues
            },
            {
             label: "Sales values",
-            backgroundColor: "green",
+            backgroundColor: "#a4c3b2",
             data: salesValues
          }
         ]
@@ -100,7 +100,7 @@ async function getTopCategories() {
       labels: labels,
       datasets: [{
         label: "Number of",
-        borderColor: "blue",
+        borderColor: "#6b9080",
         data: salesValues,
         fill: false
       }]
