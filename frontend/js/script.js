@@ -184,7 +184,11 @@ function insertNewRecordFromDB(data) {
   cell8.innerHTML = data[i].author_id;
   cell8.style="text-align:center";
   cell9 = newRow.insertCell(8);
-  cell9.innerHTML = `<button onClick="onEdit(this)" class="btn" style="background:#6b9080;color:white">Edit</button>
+  cell9.innerHTML = `<button onClick="onEdit(this)" class="btn" style="background:#6b9080;color:white"><a style="
+  display: block;
+    color: inherit;
+    text-decoration: inherit;
+  " href="#upward-form">Edit</a></button>
                      <button onClick="onDelete(this)" class="btn" style="background:#90323d;color:white">Delete</button>`;
   }
 }
