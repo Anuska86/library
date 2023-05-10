@@ -5,7 +5,13 @@ async function getSalesAndStocks() {
   stockValues = [];
   salesValues = [];
   for (i = 0; i < data.length; i++) {
-     labels.push(data[i].title);
+    let formattedTitle = '';
+    if(data[i].title.length>30){
+      formattedTitle = data[i].title.slice(0, 30)+' ...';
+    }else{
+      formattedTitle = data[i].title;
+    }
+     labels.push(formattedTitle);
      stockValues.push(data[i].stock_value);
      salesValues.push(data[i].sales_value);
   }
