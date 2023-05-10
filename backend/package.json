@@ -10,7 +10,7 @@
     "type": "git",
     "url": ""
   },
-  "author": "",
+  "author": "Ana Sappia",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.2",

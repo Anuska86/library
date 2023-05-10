@@ -112,7 +112,7 @@ function toogleChecks(isValid,response){
 
 
   function deleteFromDB(td){
-    let id = td.parentElement.parentElement.innerHTML.split('<td>')[1].split('</td>')[0];
+    let id = td.parentElement.parentElement.innerHTML.split('<td style="text-align: center;">')[1].split('</td>')[0];
     fetch(`http://localhost:8000/book/${id}`, {
       method: 'DELETE',
       headers: {

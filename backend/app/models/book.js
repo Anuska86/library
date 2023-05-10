@@ -14,7 +14,6 @@ function Book() {
   };
   this.getOneBook = function(isbn,res) {
     connection.acquire(function(err,con) {
-      console.log(isbn);
       con.query('select * from book where isbn = ?',[isbn], function(err,result) {
         con.release();
         res.send(result);
